@@ -1,0 +1,22 @@
+{
+	"schemaVersion": 1,
+	"id": "smootherbedrock",
+	"version": "${version}",
+	"name": "Smoother Bedrock",
+	"description": "Makes all bedrock layers flat.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Smoother-Bedrock#readme",
+		"issues": "https://github.com/haykam821/Smoother-Bedrock/issues"
+	},
+	"mixins": [
+		"smootherbedrock.mixin.json"
+	],
+	"license": "MIT",
+	"icon": "assets/smootherbedrock/icon.png",
+	"depends": {
+		"fabricloader": ">=0.4.0"
+	}
+}
