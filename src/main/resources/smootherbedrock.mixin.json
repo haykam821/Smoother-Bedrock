@@ -2,8 +2,10 @@
 	"required": true,
 	"package": "io.github.haykam821.smootherbedrock.mixin",
 	"compatibilityLevel": "JAVA_8",
+	"plugin": "io.github.haykam821.smootherbedrock.mixin.SmootherBedrockMixinConfigPlugin",
 	"mixins": [
-		"NoiseChunkGeneratorMixin"
+		"NoiseChunkGeneratorMixin116",
+		"NoiseChunkGeneratorMixin117"
 	],
 	"injectors": {
 		"defaultRequire": 1
