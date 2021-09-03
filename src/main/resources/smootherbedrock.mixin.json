@@ -4,6 +4,7 @@
 	"compatibilityLevel": "JAVA_8",
 	"plugin": "io.github.haykam821.smootherbedrock.mixin.SmootherBedrockMixinConfigPlugin",
 	"mixins": [
+		"BaseEcotonesChunkGeneratorMixin",
 		"NoiseChunkGeneratorMixin116",
 		"NoiseChunkGeneratorMixin117"
 	],

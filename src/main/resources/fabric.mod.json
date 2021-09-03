@@ -18,5 +18,8 @@
 	"icon": "assets/smootherbedrock/icon.png",
 	"depends": {
 		"fabricloader": ">=0.4.0"
+	},
+	"suggests": {
+		"ecotones": "*"
 	}
 }
