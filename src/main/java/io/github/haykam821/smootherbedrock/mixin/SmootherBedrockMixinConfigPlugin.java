@@ -23,9 +23,12 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 	private static final String MIXIN_CLASS_PREFIX = "io.github.haykam821.smootherbedrock.mixin.";
 	private static final String MIXIN_CLASS_1_16 = MIXIN_CLASS_PREFIX + "NoiseChunkGeneratorMixin116";
 	private static final String MIXIN_CLASS_1_17 = MIXIN_CLASS_PREFIX + "NoiseChunkGeneratorMixin117";
+	private static final String MIXIN_CLASS_1_18 = MIXIN_CLASS_PREFIX + "NoiseChunkGeneratorMixin118";
+	private static final String ACCESSOR_CLASS_1_18 = MIXIN_CLASS_PREFIX + "DeepslateBlockSourceAccessor";
 	private static final String MIXIN_CLASS_ECOTONES = MIXIN_CLASS_PREFIX + "BaseEcotonesChunkGeneratorMixin";
 
 	private static final Predicate<SemanticVersionImpl> IS_1_17 = createVersionCompatibility(">=1.17-alpha.20.45.a");
+	private static final Predicate<SemanticVersionImpl> IS_1_18 = createVersionCompatibility(">=1.18-alpha.21.40.a");
 	private static final BooleanSupplier HAS_ECOTONES = createModCompatibility("ecotones");
 
 	@Override
@@ -43,7 +46,9 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 		if (mixinClass.equals(MIXIN_CLASS_1_16)) {
 			return !IS_1_17.test(getMinecraftVersion());
 		} else if (mixinClass.equals(MIXIN_CLASS_1_17)) {
-			return IS_1_17.test(getMinecraftVersion());
+			return IS_1_17.test(getMinecraftVersion()) && !IS_1_18.test(getMinecraftVersion());
+		} else if (mixinClass.equals(MIXIN_CLASS_1_18) || mixinClass.equals(ACCESSOR_CLASS_1_18)) {
+			return IS_1_18.test(getMinecraftVersion());
 		} else if (mixinClass.equals(MIXIN_CLASS_ECOTONES)) {
 			return HAS_ECOTONES.getAsBoolean();
 		}

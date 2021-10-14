@@ -5,8 +5,10 @@
 	"plugin": "io.github.haykam821.smootherbedrock.mixin.SmootherBedrockMixinConfigPlugin",
 	"mixins": [
 		"BaseEcotonesChunkGeneratorMixin",
+		"DeepslateBlockSourceAccessor",
 		"NoiseChunkGeneratorMixin116",
-		"NoiseChunkGeneratorMixin117"
+		"NoiseChunkGeneratorMixin117",
+		"NoiseChunkGeneratorMixin118"
 	],
 	"injectors": {
 		"defaultRequire": 1
