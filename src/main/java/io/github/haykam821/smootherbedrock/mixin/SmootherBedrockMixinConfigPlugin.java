@@ -14,10 +14,10 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.fabricmc.loader.api.SemanticVersion;
 import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.VersionParsingException;
-import net.fabricmc.loader.util.version.SemanticVersionImpl;
-import net.fabricmc.loader.util.version.SemanticVersionPredicateParser;
+import net.fabricmc.loader.api.metadata.version.VersionPredicate;
 
 public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 	private static final String MIXIN_CLASS_PREFIX = "io.github.haykam821.smootherbedrock.mixin.";
@@ -27,8 +27,8 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 	private static final String ACCESSOR_CLASS_1_18 = MIXIN_CLASS_PREFIX + "DeepslateBlockSourceAccessor";
 	private static final String MIXIN_CLASS_ECOTONES = MIXIN_CLASS_PREFIX + "BaseEcotonesChunkGeneratorMixin";
 
-	private static final Predicate<SemanticVersionImpl> IS_1_17 = createVersionCompatibility(">=1.17-alpha.20.45.a");
-	private static final Predicate<SemanticVersionImpl> IS_1_18 = createVersionCompatibility(">=1.18-alpha.21.40.a");
+	private static final Predicate<Version> IS_1_17 = createVersionCompatibility(">=1.17-alpha.20.45.a");
+	private static final Predicate<Version> IS_1_18 = createVersionCompatibility(">=1.18-alpha.21.40.a");
 	private static final BooleanSupplier HAS_ECOTONES = createModCompatibility("ecotones");
 
 	@Override
@@ -76,22 +76,22 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 		return;
 	}
 
-	private static SemanticVersionImpl getMinecraftVersion() {
+	private static Version getMinecraftVersion() {
 		Optional<ModContainer> container = FabricLoader.getInstance().getModContainer("minecraft");
 
 		if (container.isPresent()) {
 			Version version = container.get().getMetadata().getVersion();
-			if (version instanceof SemanticVersionImpl) {
-				return (SemanticVersionImpl) version;
+			if (version instanceof SemanticVersion) {
+				return version;
 			}
 		}
 
 		return null;
 	}
 
-	private static Predicate<SemanticVersionImpl> createVersionCompatibility(String versionRange) {
+	private static Predicate<Version> createVersionCompatibility(String versionRange) {
 		try {
-			return SemanticVersionPredicateParser.create(versionRange);
+			return VersionPredicate.parse(versionRange);
 		} catch (VersionParsingException exception) {
 			return Predicates.alwaysFalse();
 		}
