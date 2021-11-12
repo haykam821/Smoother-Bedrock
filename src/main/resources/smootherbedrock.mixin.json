@@ -8,7 +8,8 @@
 		"LayerTransitionBlockSourceAccessor",
 		"NoiseChunkGeneratorMixin116",
 		"NoiseChunkGeneratorMixin117",
-		"NoiseChunkGeneratorMixin118"
+		"NoiseChunkGeneratorMixin118",
+		"NoiseChunkGeneratorMixin1182"
 	],
 	"injectors": {
 		"defaultRequire": 1
