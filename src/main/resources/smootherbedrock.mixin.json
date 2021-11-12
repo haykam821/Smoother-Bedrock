@@ -5,7 +5,7 @@
 	"plugin": "io.github.haykam821.smootherbedrock.mixin.SmootherBedrockMixinConfigPlugin",
 	"mixins": [
 		"BaseEcotonesChunkGeneratorMixin",
-		"DeepslateBlockSourceAccessor",
+		"LayerTransitionBlockSourceAccessor",
 		"NoiseChunkGeneratorMixin116",
 		"NoiseChunkGeneratorMixin117",
 		"NoiseChunkGeneratorMixin118"

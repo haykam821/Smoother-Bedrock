@@ -24,7 +24,7 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 	private static final String MIXIN_CLASS_1_16 = MIXIN_CLASS_PREFIX + "NoiseChunkGeneratorMixin116";
 	private static final String MIXIN_CLASS_1_17 = MIXIN_CLASS_PREFIX + "NoiseChunkGeneratorMixin117";
 	private static final String MIXIN_CLASS_1_18 = MIXIN_CLASS_PREFIX + "NoiseChunkGeneratorMixin118";
-	private static final String ACCESSOR_CLASS_1_18 = MIXIN_CLASS_PREFIX + "DeepslateBlockSourceAccessor";
+	private static final String ACCESSOR_CLASS_1_18 = MIXIN_CLASS_PREFIX + "LayerTransitionBlockSourceAccessor";
 	private static final String MIXIN_CLASS_ECOTONES = MIXIN_CLASS_PREFIX + "BaseEcotonesChunkGeneratorMixin";
 
 	private static final Predicate<Version> IS_1_17 = createVersionCompatibility(">=1.17-alpha.20.45.a");

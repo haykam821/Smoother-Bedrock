@@ -4,19 +4,19 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.world.gen.DeepslateBlockSource;
+import net.minecraft.world.gen.LayerTransitionBlockSource;
 
-@Mixin(DeepslateBlockSource.class)
-public interface DeepslateBlockSourceAccessor {
-	@Accessor("field_35137")
+@Mixin(LayerTransitionBlockSource.class)
+public interface LayerTransitionBlockSourceAccessor {
+	@Accessor("belowState")
 	public BlockState getBelowState();
 
-	@Accessor("field_35138")
+	@Accessor("aboveState")
 	public BlockState getAboveState();
 
-	@Accessor("field_35139")
+	@Accessor("minY")
 	public int getMinY();
 
-	@Accessor("field_35140")
+	@Accessor("maxY")
 	public int getMaxY();
 }
