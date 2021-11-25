@@ -26,6 +26,7 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 	private static final String MIXIN_CLASS_1_18 = MIXIN_CLASS_PREFIX + "NoiseChunkGeneratorMixin118";
 	private static final String MIXIN_CLASS_1_18_2 = MIXIN_CLASS_PREFIX + "NoiseChunkGeneratorMixin1182";
 	private static final String MIXIN_CLASS_1_18_3 = MIXIN_CLASS_PREFIX + "VanillaSurfaceRulesMixin";
+	private static final String MIXIN_CLASS_1_18_4 = MIXIN_CLASS_PREFIX + "VanillaSurfaceRulesMixin2";
 	private static final String ACCESSOR_CLASS_1_18 = MIXIN_CLASS_PREFIX + "LayerTransitionBlockSourceAccessor";
 	private static final String MIXIN_CLASS_ECOTONES = MIXIN_CLASS_PREFIX + "BaseEcotonesChunkGeneratorMixin";
 
@@ -33,6 +34,7 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 	private static final Predicate<Version> IS_1_18 = createVersionCompatibility(">=1.18-alpha.21.40.a");
 	private static final Predicate<Version> IS_1_18_2 = createVersionCompatibility(">=1.18-alpha.21.42.a");
 	private static final Predicate<Version> IS_1_18_3 = createVersionCompatibility(">=1.18-alpha.21.44.a");
+	private static final Predicate<Version> IS_1_18_4 = createVersionCompatibility(">=1.18-beta.5");
 	private static final BooleanSupplier HAS_ECOTONES = createModCompatibility("ecotones");
 
 	@Override
@@ -56,7 +58,9 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 		} else if (mixinClass.equals(MIXIN_CLASS_1_18_2)) {
 			return IS_1_18_2.test(getMinecraftVersion()) && !IS_1_18_3.test(getMinecraftVersion());
 		} else if (mixinClass.equals(MIXIN_CLASS_1_18_3)) {
-			return IS_1_18_3.test(getMinecraftVersion());
+			return IS_1_18_3.test(getMinecraftVersion()) && !IS_1_18_4.test(getMinecraftVersion());
+		} else if (mixinClass.equals(MIXIN_CLASS_1_18_4)) {
+			return IS_1_18_4.test(getMinecraftVersion());
 		} else if (mixinClass.equals(ACCESSOR_CLASS_1_18)) {
 			return IS_1_18.test(getMinecraftVersion()) && !IS_1_18_3.test(getMinecraftVersion());
 		} else if (mixinClass.equals(MIXIN_CLASS_ECOTONES)) {

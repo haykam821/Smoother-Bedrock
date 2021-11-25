@@ -10,7 +10,8 @@
 		"NoiseChunkGeneratorMixin117",
 		"NoiseChunkGeneratorMixin118",
 		"NoiseChunkGeneratorMixin1182",
-		"VanillaSurfaceRulesMixin"
+		"VanillaSurfaceRulesMixin",
+		"VanillaSurfaceRulesMixin2"
 	],
 	"injectors": {
 		"defaultRequire": 1
