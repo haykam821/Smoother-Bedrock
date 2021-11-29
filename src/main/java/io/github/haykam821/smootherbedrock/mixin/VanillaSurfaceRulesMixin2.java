@@ -10,12 +10,12 @@ import net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules;
 
 @Mixin(VanillaSurfaceRules.class)
 public class VanillaSurfaceRulesMixin2 {
-	@Redirect(method = "method_39922", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/surfacebuilder/MaterialRules;verticalGradient(Ljava/lang/String;Lnet/minecraft/world/gen/YOffset;Lnet/minecraft/world/gen/YOffset;)Lnet/minecraft/world/gen/surfacebuilder/MaterialRules$MaterialCondition;", ordinal = 0))
+	@Redirect(method = "createDefaultRule", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/surfacebuilder/MaterialRules;verticalGradient(Ljava/lang/String;Lnet/minecraft/world/gen/YOffset;Lnet/minecraft/world/gen/YOffset;)Lnet/minecraft/world/gen/surfacebuilder/MaterialRules$MaterialCondition;", ordinal = 0))
 	private static MaterialRules.MaterialCondition adjustOverworldBedrockRoof(String id, YOffset trueAtAndBelow, YOffset falseAtAndAbove) {
 		return MaterialRules.verticalGradient(id, YOffset.belowTop(1), trueAtAndBelow);
 	}
 
-	@Redirect(method = "method_39922", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/surfacebuilder/MaterialRules;verticalGradient(Ljava/lang/String;Lnet/minecraft/world/gen/YOffset;Lnet/minecraft/world/gen/YOffset;)Lnet/minecraft/world/gen/surfacebuilder/MaterialRules$MaterialCondition;", ordinal = 1))
+	@Redirect(method = "createDefaultRule", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/surfacebuilder/MaterialRules;verticalGradient(Ljava/lang/String;Lnet/minecraft/world/gen/YOffset;Lnet/minecraft/world/gen/YOffset;)Lnet/minecraft/world/gen/surfacebuilder/MaterialRules$MaterialCondition;", ordinal = 1))
 	private static MaterialRules.MaterialCondition adjustOverworldBedrockFloor(String id, YOffset trueAtAndBelow, YOffset falseAtAndAbove) {
 		return MaterialRules.verticalGradient(id, trueAtAndBelow, trueAtAndBelow);
 	}
