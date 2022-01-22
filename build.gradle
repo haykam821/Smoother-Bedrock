@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.10.66"
+	id "fabric-loom" version "0.11.14"
 	id "maven-publish"
 }
 
@@ -16,6 +16,10 @@ repositories {
 		url = "https://maven.fabricmc.net/"
 	}
 	jcenter()
+}
+
+loom {
+	runtimeOnlyLog4j = true
 }
 
 dependencies {
