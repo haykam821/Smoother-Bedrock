@@ -17,6 +17,6 @@ public class VanillaSurfaceRulesMixin {
 
 	@Redirect(method = "createNetherSurfaceRule", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/gen/surfacebuilder/MaterialRules;verticalGradient(Ljava/lang/String;Lnet/minecraft/world/gen/YOffset;Lnet/minecraft/world/gen/YOffset;)Lnet/minecraft/world/gen/surfacebuilder/MaterialRules$MaterialCondition;", ordinal = 1))
 	private static MaterialRules.MaterialCondition adjustNetherBedrockRoof(String id, YOffset trueAtAndBelow, YOffset falseAtAndAbove) {
-		return MaterialRules.verticalGradient(id, YOffset.belowTop(1), trueAtAndBelow);
+		return MaterialRules.verticalGradient(id, YOffsetAccessor.belowTop(1), trueAtAndBelow);
 	}
 }

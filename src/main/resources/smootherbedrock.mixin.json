@@ -11,7 +11,8 @@
 		"NoiseChunkGeneratorMixin118",
 		"NoiseChunkGeneratorMixin1182",
 		"VanillaSurfaceRulesMixin",
-		"VanillaSurfaceRulesMixin2"
+		"VanillaSurfaceRulesMixin2",
+		"YOffsetAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1

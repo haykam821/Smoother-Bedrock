@@ -28,6 +28,7 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 	private static final String MIXIN_CLASS_1_18_3 = MIXIN_CLASS_PREFIX + "VanillaSurfaceRulesMixin";
 	private static final String MIXIN_CLASS_1_18_4 = MIXIN_CLASS_PREFIX + "VanillaSurfaceRulesMixin2";
 	private static final String ACCESSOR_CLASS_1_18 = MIXIN_CLASS_PREFIX + "LayerTransitionBlockSourceAccessor";
+	private static final String ACCESSOR_CLASS_1_18_2 = MIXIN_CLASS_PREFIX + "YOffsetAccessor";
 	private static final String MIXIN_CLASS_ECOTONES = MIXIN_CLASS_PREFIX + "BaseEcotonesChunkGeneratorMixin";
 
 	private static final Predicate<Version> IS_1_17 = createVersionCompatibility(">=1.17-alpha.20.45.a");
@@ -63,6 +64,8 @@ public class SmootherBedrockMixinConfigPlugin implements IMixinConfigPlugin {
 			return IS_1_18_4.test(getMinecraftVersion());
 		} else if (mixinClass.equals(ACCESSOR_CLASS_1_18)) {
 			return IS_1_18.test(getMinecraftVersion()) && !IS_1_18_3.test(getMinecraftVersion());
+		} else if (mixinClass.equals(ACCESSOR_CLASS_1_18_2)) {
+			return IS_1_18_3.test(getMinecraftVersion());
 		} else if (mixinClass.equals(MIXIN_CLASS_ECOTONES)) {
 			return HAS_ECOTONES.getAsBoolean();
 		}
